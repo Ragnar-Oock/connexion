@@ -1,0 +1,442 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+
+:root{
+  --couleur-principale: #bdbdbd;
+  --couleur-secondaire: #36393e;
+  --couleur-tertiaire: #8d8d8d;
+  --couleur-ombre: #10131880;
+  --vert: #20cc1c;
+  --rouge: #f44336;
+}
+
+body {
+  background: var(--couleur-principale);
+  font-family: Roboto;
+  font-weight: 400;
+  margin: 0;
+}
+fieldset {
+  box-shadow: 0px 0px 5px 0px var(--couleur-ombre);
+  border: none;
+}
+legend {
+  text-align: center;
+  width: 100%;
+  background: white;
+  box-shadow: 0px 0px 5px 0px var(--couleur-ombre);
+  padding: 2px 4px;
+  border-radius: 5px;
+}
+#viewport {
+  margin-top: 60px;
+  overflow: auto;
+  min-height: calc(100vh - 60px);
+}
+
+/*style relatif a la page de connexion*/
+#boiteConnexion{
+  display: block;
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+	transform: translate(-50%, -50%);
+}
+#contenuConnection {
+	border: none;
+	padding: 5px 15px;
+	background-color: white;
+	text-align: center;
+	border-radius: 10px;
+	width: 300px;
+  margin-bottom: 15px;
+}
+#bandeauConnexion, #bandeauConnexionLecteur{
+ width: 300px;
+ padding: 0px 15px;
+ text-align: center;
+ background-color: lightgray;
+ border-radius: 10px;
+}
+#bandeauConnexion p, #bandeauConnexionLecteur p{
+  padding: 5px;
+  text-align: justify;
+}
+#titreConnection{
+  background-color: white;
+}
+.erreur{
+  display: block;
+  background-color: #f44336;
+  border-radius: 10px;
+  padding: 0px 10px;
+  width: 310px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.erreur p{
+  padding: 2px 0px;
+}
+
+/*style relatif a l'affichage des information des utilisateur éxistants*/
+.UU {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 70%;
+  min-width: 700px;
+	margin: 10px auto 0px auto;
+	padding: 5px 10px;
+	border-radius: 3px;
+  color: #ffffff;
+	-moz-transition: box-shadow .8s ease, background-color .8s ease;
+	-webkit-transition: box-shadow .8s ease , background-color .8s ease;
+	-o-transition: box-shadow .8s ease , background-color .8s ease;
+	box-shadow: 0px 5px 5px #10131880;
+	background-color: var(--couleur-secondaire);
+	box-sizing: border-box;
+}
+.UU p {
+  margin: 2px 0px;
+}
+.UU_aucun {
+  width: 70%;
+  min-width: 700px;
+	margin: 10px auto 0px auto;
+	padding: 5px 10px;
+	border-radius: 3px;
+  color: #ffffff;
+	-moz-transition: box-shadow .8s ease, background-color .8s ease;
+	-webkit-transition: box-shadow .8s ease , background-color .8s ease;
+	-o-transition: box-shadow .8s ease , background-color .8s ease;
+	box-shadow: 0px 5px 5px #10131880;
+	background-color: var(--couleur-secondaire);
+	box-sizing: border-box;
+}
+.UU_label {
+  font-weight: bold;
+}
+.UU_Login {
+  font-size: 150%;
+}
+.UU_NbCo {
+  grid-column-start: 1;
+}
+.UU_bouton {
+  grid-column-start: 1;
+  grid-column-end: -1;
+}
+.UU_iframe{
+  border: none;
+}
+.UU_details{
+  grid-column-start: 1;
+  grid-column-end: -1;
+  height: 250px;
+  overflow: hidden;
+  filter: opacity(1);
+  transition: height 300ms ease-in-out,
+  filter 300ms ease-in-out;
+
+}
+.UU_details_hidden{
+  height: 0;
+  filter: opacity(0);
+}
+@media screen and (max-width: 1280px) {
+  .UU {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/*style ralatif a l'affichage des stats des utilisateurs*/
+.SC_boite {
+	border: none;
+	padding: 5px 15px;
+	background-color: white;
+	text-align: center;
+	border-radius: 10px;
+	width: 300px;
+  margin-bottom: 15px;
+}
+#SC_body {
+  margin: 0;
+  background: transparent;
+  color: white;
+  overflow-y: scroll;
+}
+#SC_body p {
+  margin: 2px 0;
+}
+.SC_titre {
+  position: fixed;
+  display: grid;
+  margin-top: -2em;
+  grid-template-rows: 2em;
+  grid-template-columns: 34% 33%;
+  width: 100%;
+  vertical-align: middle;
+  background: var(--couleur-secondaire);
+}
+.SC_titre p {
+  margin: auto 0px;
+}
+.SC {
+  margin-top: 2em;
+  display: grid;
+  grid-template-columns: 34% 66%;
+  width: 100%;
+  background: var(--couleur-secondaire);
+}
+.SC div:nth-child(4n), .SC div:nth-child(4n-1) {
+  background: #474a4f;
+}
+@media screen and (max-widht: 1000px) {
+  .SC, .SC_titre {
+    grid-template-columns:
+  }
+}
+
+/*style ralatif a l'affichage de la création d'un utilisateur*/
+.CU {
+  display: grid;
+  grid-template-columns: 325px 325px;
+  grid-gap: 15px;
+}
+.CU_fieldset{
+  display: block;
+  width: 300px;
+  text-align: center;
+  margin: 0;
+}
+.CU_table {
+  text-align: left;
+}
+.center_div{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*style relatif a l'affichage de l'entete*/
+#bandeau, #bandeauLecteur {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+	background-color: var(--couleur-secondaire);
+	margin: 0px;
+	height:  60px;
+	z-index: 0;
+  text-align: right;
+  vertical-align: middle;
+  padding: 0 30px;
+}
+#enteteBackground, #enteteBackgroundLecteur {
+	position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+	background-color: var(--couleur-secondaire);
+	margin: 0px;
+	height:  60px;
+	box-shadow: 0px 0px 15px 0px #10131880;
+	z-index: 1;
+  text-align: right;
+  vertical-align: middle;
+  padding: 0 30px;
+}
+#enteteBackground *,#enteteBackgroundLecteur *  {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.menu-dropdown{
+  position:relative;
+  display: block;
+  width: 20px;
+  height: 18px;
+}
+
+.menu-dropdown-content{
+  display: none;
+  position: relative;
+  z-index: 1;
+}
+.menu-dropdown:hover .menu-dropdown-content {
+  display: block;
+}
+/*style qui s'applique a l'entete si l'ecran est large de moins de 1064px*/
+@media screen and (max-width: 1064px) {
+  #bandeau {  position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+  	background-color: var(--couleur-secondaire);
+  	margin: 0px;
+  	height:  60px;
+  	z-index: 1000;
+    text-align: right;
+    vertical-align: middle;
+    padding: 0 30px;
+    box-shadow: 0px 0px 15px 0px #10131880;
+    z-index: 2;
+
+  }
+  #enteteBackground {
+    position: absolute;
+    top: -300px;
+    display: grid;
+    height: 152px;
+    grid-template-columns: 1fr;
+    padding: 20px 0;
+    transition: top 300ms ease-in-out;
+  }
+  #boutonMenu {
+  	display: block;
+  	position: absolute;
+  	cursor: pointer;
+  	top: 50%;
+  	transform: translateY(-50%);
+  	right: 30px;
+  }
+  #menuBar1, #menuBar2, #menuBar3 {
+  	width: 35px;
+  	height: 5px;
+  	background-color: white;
+  	margin: 6px 0px;
+  	transition: transform .3s ease-in-out, opacity .3s ease-in-out;
+  }
+  .change #menuBar1 {
+  	-webkit-transform: rotate(-45deg) translate(-8px, 4px);
+  	transform: rotate(-45deg) translate(-8px, 4px);
+  }
+  .change #menuBar2 {
+  	opacity: 0;
+  }
+  .change #menuBar3 {
+  	-webkit-transform: rotate(45deg) translate(-10.75px, -8px);
+    transform: rotate(45deg) translate(-10.75px, -8px);
+  }
+  #enteteBackground.menuHide{
+    top: 60px;
+  }
+  #enteteBackground * {
+    top: 0 ;
+    transform: translateY(0);
+    border-radius: 0;
+  }
+}
+
+button, input[type=reset], input[type=submit], input[type=button], .button {
+  text-transform: uppercase;
+	cursor: pointer;
+	font-size: 16px;
+	letter-spacing: 1px;
+	color: white;
+  outline: none;
+  border: none;
+  background: #474a4f;
+  padding: 5px 15px;
+  transition: background-color 300ms ease-in-out,
+  color 300ms ease-in-out;
+	border-radius: 3px;
+  min-width: 8em;
+}
+button:hover, input[type=reset]:hover, input[type=submit]:hover {
+  background: #5f6267;
+}
+input[type=password], input[type=text] {
+  all: unset;
+  border-bottom: solid black 1px;
+  text-align: left;
+  margin: 0 5%;
+  width: auto;
+}
+/* le conteneur de l'objet checkbox */
+.uneCheckbox {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.uneCheckbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  height: 15px;
+  width: 15px;
+  background-color: #eee;
+}
+
+
+.uneCheckbox:hover input ~ .checkmark {
+  filter: opacity(50%);
+}
+
+/* When the checkbox is checked, add a blue background */
+.uneCheckbox input:checked ~ .checkmark {
+  background-color: var(--vert);
+}
+.uneCheckbox input:checked ~ .checkmark:hover {
+  transform: scale(80% 80%);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark::after {
+  content: "";
+  position: absolute;
+  filter: opacity(0);
+  transform: scale(0);
+  transition: filter 300ms ease-in-out,
+  transform 0 300ms;
+}
+
+/* Style the checkmark/indicator */
+.uneCheckbox .checkmark::after {
+  left: 4px;
+  top: 0;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  filter: opacity(0);
+}
+
+/* Show the checkmark when checked */
+.uneCheckbox input:checked ~ .checkmark::after {
+  -webkit-transform: rotate(45deg), scale(1);
+  -ms-transform: rotate(45deg), scale(1);
+  transform: rotate(45deg), scale(1);
+  filter: opacity(1);
+}
+
+.negatif:hover {
+  color: var(--rouge);
+}
+.rouge{
+  color: var(--rouge);
+}
+.vert{
+  color: var(--vert);
+}
+.visibilite {
+  visibility: hidden;
+}

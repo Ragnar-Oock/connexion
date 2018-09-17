@@ -1,0 +1,98 @@
+<?php
+include("./vues/v_enteteConnexion.php");
+if(!isset($_REQUEST['action'])){$_REQUEST['action'] = 'demandeConnexion';}
+
+$action = $_REQUEST['action'];
+switch($action){
+	case 'demandeConnexion':{
+		session_unset();
+		include("vues/v_connexion.php");
+		break;
+	}
+
+	case 'valideConnexion':{
+		$utilisateur=$pdo->getConnexion($_REQUEST['login'], $_REQUEST['mdp']);
+		include './vues/v_debug';
+		// if (!isset($utilisateur)) {
+		// 	$_SESSION['connexionErreur']='mdp';
+		// 	include("./vues/v_connexion.php");
+		//  	break;
+		// }
+		// else {
+		// 	if ($utilisateur['gId']=='0') {
+		// 		connecter($utilisateur['uId'], $utilisateur['gId'], $utilisateur['uEtat'], $utilisateur['uActif']);
+		// 		header('location: index.php?choixTraitement=admin&action=voir');
+		// 		break;
+		// 	}
+		// 	else {
+		// 		// if ($utilisateur['uEtat']=='TRUE') {
+		// 			connecter($utilisateur['uId'], $utilisateur['gId'], $utilisateur['uEtat'], $utilisateur['uActif']);
+		// 			header('location: index.php?choixTraitement=page');
+		//
+		// 		// }
+		// 		// else {
+		// 		// 	$_SESSION['connexionErreur']='validite';
+		// 		// 	include './vues/v_connexion.php';
+		// 		// }
+		// 	}
+		// }
+
+		break;
+	}
+
+	// case 'valideConnexion':{
+	// 	$utilisateur=$pdo->getConnexion($_REQUEST['login'], $_REQUEST['mdp']);
+	// 	include './vues/v_debug.php';
+	// 	break;
+	// 	//test si la requete SQL revoie des informations
+	// 	if(!is_array($utilisateur)){
+	// 		//si non, on demande a l'utilisateur de retenter la connexion
+	// 		$_SESSION['connexionErreur']='mdp';
+	// 		include("./vues/v_connexion.php");
+	// 		break;
+	// 	}
+	// 	else{
+	// 		//si oui, on test si l'utilisateur est un admin
+	// 		if ($utilisateur['gId']=='0') {
+	// 			//si oui, on le connect sur la page admin
+	// 			connecter($utilisateur['uId'], $utilisateur['gId'], $utilisateur['uEtat'], $utilisateur['uActif']);
+	// 			header ('location: index.php?choixTraitement=admin&action=voir');
+	// 			break;
+	// 		}
+	// 		else {
+	// 			//si non, on verifie la date de validé du compte
+	// 			if ($utilisateur['uEtat']=="TRUE") {
+	// 				//si le compte est valide on connecte l'utilisateur
+	// 				connecter($utilisateur['uId'], $utilisateur['gId'], $utilisateur['uEtat'], $utilisateur['uActif']);
+	//
+	// 				//stockage de la date et l'heure de connexion pour le stockage du temps de connexion de l'utilisateur.
+	// 				$_SESSION['dateConnexionAnnee']=date('o');
+	// 				$_SESSION['dateConnexionMois']=date('m');
+	// 				$_SESSION['dateConnexionJour']=date('j');
+	// 				$_SESSION['dateConnexionHeure']=date('G');
+	// 				$_SESSION['dateConnexionMinute']=date('i');
+	// 				$_SESSION['dateConnexionTimestamp']=date('o-m-d H:i:s');
+	//
+	// 				$paysConnexion = $pdo->ajoutPaysConnexion($_SESSION['uId'] ,$pdo->getPays($pdo->getIp()));
+	// 				$pdo->statNbCo($_SESSION['uId']);
+	// 				header ('location: index.php?choixTraitement=page');
+	// 				break;
+	// 			}
+	// 			else {
+	// 				//sinon on signale a l'utilisateur que son compte n'est plus valide
+	// 				$_SESSION['connexionErreur']='validite';
+	// 				include("./vues/v_connexion.php");
+	// 			}
+	// 		}
+	// 	}
+	// 	break;
+	// }
+
+	default :{
+		deconnecter();
+		$_SESSION['connexionErreur']='default';
+		include("vues/v_connexion.php");
+		break;
+	}
+}
+?>
